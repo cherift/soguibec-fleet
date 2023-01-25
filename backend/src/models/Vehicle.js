@@ -19,6 +19,12 @@ const VehicleSchema = new mongoose.Schema({
     ],
     weight: {
         type: Number,
+        default: 0,
+    },
+    organization: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Driver',
+        required: true,
     },
 });
 

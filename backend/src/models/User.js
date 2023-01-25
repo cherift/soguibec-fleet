@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: Role,
+        required: true,
     },
     firstName: {
         type: String,

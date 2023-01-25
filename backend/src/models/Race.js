@@ -5,6 +5,11 @@ const Status = require('./Status');
 
 const RaceSchema = new mongoose.Schema(
     {
+        organization: {
+            type: mongoose.Types.ObjectId,
+            ref: 'Driver',
+            required: true,
+        },
         driver: {
             type: mongoose.Types.ObjectId,
             ref: 'Driver',

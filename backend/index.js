@@ -17,18 +17,19 @@ mongoose.connect(concatEnv.concate(process.env.MONGODB), {
 const app = express();
 app.use(express.json());
 
-app.use('/race', require('./src/routes/race'));
-app.use('/driver', require('./src/routes/driver'));
-app.use('/supervisor', require('./src/routes/supervisor'));
-app.use('/vehicle', require('./src/routes/vehicle'));
-app.use('/organization', require('./src/routes/organization'));
-
 app.get('/', (req, res, next) => {
     res.status(200).json({
         name: 'fleet management api',
         version: '1.0.0',
     });
 });
+
+app.use('/race', require('./src/routes/race'));
+app.use('/driver', require('./src/routes/driver'));
+app.use('/supervisor', require('./src/routes/supervisor'));
+app.use('/vehicle', require('./src/routes/vehicle'));
+app.use('/organization', require('./src/routes/organization'));
+app.use('/apikey', require('./src/routes/apiKey'));
 
 // render 404 page
 app.use((req, res, next) => {

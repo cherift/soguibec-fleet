@@ -1,7 +1,10 @@
+'use strict';
+
 const express = require('express');
+const Organization = require('../controllers/Organization');
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => res.json({ error: false }));
+router.post('/', Organization.addOrganization);
 
 module.exports = router;

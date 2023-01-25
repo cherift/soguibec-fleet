@@ -10,9 +10,9 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "crypto": "^1.0.1",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
-        "fs": "*",
         "mongoose": "^6.8.4",
         "path": "^0.12.7"
     },

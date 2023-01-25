@@ -6,13 +6,14 @@ const OrganizationSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
+    },
+    address: {
+        type: String,
     },
     logo: {
         type: mongoose.Types.ObjectId,
         ref: 'Document',
-    },
-    address: {
-        type: String,
     },
 });
 

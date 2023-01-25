@@ -12,9 +12,8 @@ const DocumentSchema = new mongoose.Schema({
         required: true,
     },
     data: {
-        type: Buffer,
-        contentType: String,
-        unique: true,
+        type: String,
+        required: true,
     },
 });
 
