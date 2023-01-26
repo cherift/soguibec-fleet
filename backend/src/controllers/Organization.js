@@ -77,10 +77,12 @@ const addOrganization = async (req, res, next) => {
         res.status(200).json({
             success: true,
             message: 'new organization created',
-            organization: result,
-            admin: {
-                login: amdinUser.login,
-                password: password,
+            data: {
+                organization: result,
+                admin: {
+                    login: amdinUser.login,
+                    password: password,
+                },
             },
         });
     } catch (e) {
@@ -92,9 +94,30 @@ const addOrganization = async (req, res, next) => {
     }
 };
 
-const getOrganization = (req, res, next) => {};
+const getOrganization = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const organization = await Organization.findById(id);
+        if (organization) {
+            res.status(200).json({
+                success: true,
+                message: 'Organization found',
+                data: organization,
+            });
+        }
+    } catch (e) {
+        res.status(401).json({
+            error: true,
+            errorMessage: 'Unable to find organization',
+            dataError: e,
+        });
+    }
+};
+
+const updateOrganization = (req, res, next) => {};
 
 module.exports = {
     addOrganization: addOrganization,
     getOrganization: getOrganization,
+    updateOrganization: updateOrganization,
 };
