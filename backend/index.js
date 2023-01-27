@@ -30,6 +30,8 @@ app.use('/supervisor', require('./src/routes/supervisor'));
 app.use('/vehicle', require('./src/routes/vehicle'));
 app.use('/organization', require('./src/routes/organization'));
 app.use('/apikey', require('./src/routes/apiKey'));
+app.use('/user', require('./src/routes/user'));
+app.use('/login', require('./src/routes/login'));
 
 // render 404 page
 app.use((req, res, next) => {
